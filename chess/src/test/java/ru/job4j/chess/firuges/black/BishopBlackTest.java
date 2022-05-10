@@ -38,7 +38,7 @@ public class BishopBlackTest extends TestCase {
         BishopBlack bishopBlack = new BishopBlack(C1);
         try {
             bishopBlack.way(G6);
-        } catch(ImpossibleMoveException e) {
+        } catch (ImpossibleMoveException e) {
         }
     }
 }

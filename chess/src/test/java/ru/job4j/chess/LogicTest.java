@@ -7,7 +7,6 @@ import ru.job4j.chess.firuges.black.QueenBlack;
 
 import static ru.job4j.chess.firuges.Cell.*;
 
-
 public class LogicTest {
 
     @Test
