@@ -21,12 +21,24 @@ public final class Logic {
     }
 
     private boolean free(Cell[] steps) throws OccupiedCellException {
+        for(Figure figure : figures) {
+            for (Cell cell : steps) {
+                if(figure == null) {
+                    break;
+                } else {
+                    if (figure.position() == cell) {
+                        throw new OccupiedCellException();
+                    }
+                }
+            }
+        }
         return true;
     }
 
-    public void clean() {
+    public Object clean() {
         Arrays.fill(figures, null);
         index = 0;
+        return null;
     }
 
     private int findBy(Cell cell) throws FigureNotFoundException {
