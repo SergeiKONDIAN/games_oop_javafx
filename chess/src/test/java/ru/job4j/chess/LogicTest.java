@@ -9,36 +9,27 @@ import static ru.job4j.chess.firuges.Cell.*;
 
 public class LogicTest {
 
-    @Test
+    @Test(expected = FigureNotFoundException.class)
     public void testNotFound()
             throws FigureNotFoundException, OccupiedCellException, ImpossibleMoveException {
         Logic logic = new Logic();
-        try {
-            logic.move(Cell.C1, Cell.H6);
-        } catch (FigureNotFoundException e) {
-        }
+        logic.move(Cell.C1, Cell.H6);
     }
 
-    @Test
+    @Test(expected = OccupiedCellException.class)
     public void testOccupied()
             throws FigureNotFoundException, OccupiedCellException, ImpossibleMoveException {
         Logic logic = new Logic();
         logic.add(new BishopBlack(C1));
         logic.add(new QueenBlack(D2));
-        try {
-            logic.move(Cell.C1, Cell.H6);
-        } catch (OccupiedCellException e) {
-        }
+        logic.move(Cell.C1, Cell.H6);
     }
 
-    @Test
+    @Test(expected = ImpossibleMoveException.class)
     public void testImpossible()
             throws FigureNotFoundException, OccupiedCellException, ImpossibleMoveException {
         Logic logic = new Logic();
         logic.add(new BishopBlack(C1));
-        try {
-            logic.move(Cell.C1, A8);
-        } catch (ImpossibleMoveException e) {
-        }
+        logic.move(Cell.C1, A8);
     }
 }
